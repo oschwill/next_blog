@@ -1,33 +1,56 @@
+import { connectToDb } from './db';
+import { Post, User } from './models';
+import { unstable_noStore as noStore } from 'next/cache';
+
 export const getAllPosts = async (slug) => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
-    next: { revalidate: 3600 }, // refetch die Daten alle 3600 Sekunden neu, sonst holt er sich die Daten aus dem Cache
-  });
+  try {
+    connectToDb();
 
-  if (!res.ok) {
-    throw new Error('something went wrong');
+    const posts = await Post.find();
+
+    return posts;
+  } catch (err) {
+    console.log(err);
+    throw new Error('Failed to fetch posts!');
   }
-
-  return res.json();
 };
 
 export const getSinglePost = async (slug) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
+  try {
+    connectToDb();
 
-  if (!res.ok) {
-    throw new Error('Something went wrong');
+    const post = await Post.findOne({ slug });
+
+    return post;
+  } catch (err) {
+    console.log(err);
+    throw new Error('Failed to fetch posts!');
   }
-
-  return res.json();
 };
 
-export const getUsers = async (userId) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
-    cache: 'no-store',
-  });
+export const getUser = async (userId) => {
+  noStore(); // caching deaktivieren
+  try {
+    connectToDb();
 
-  if (!res.ok) {
-    throw new Error('Something went wrong');
+    const user = await User.findById({ _id: userId }).lean();
+
+    return user;
+  } catch (err) {
+    console.log(err);
+    throw new Error('Failed to fetch posts!');
   }
+};
 
-  return res.json();
+export const getUsers = async () => {
+  try {
+    connectToDb();
+
+    const user = await User.find();
+
+    return user;
+  } catch (err) {
+    console.log(err);
+    throw new Error('Failed to fetch posts!');
+  }
 };
