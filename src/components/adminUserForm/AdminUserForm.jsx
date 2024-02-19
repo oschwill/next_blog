@@ -20,7 +20,9 @@ const AdminUserForm = () => {
         <option value="true">Yes</option>
       </select>
       <button>Add</button>
-      {state?.error}
+      {state?.error && (
+        <p style={{ backgroundColor: 'pink', color: 'darkred', padding: '5px' }}>{state.error}</p>
+      )}
     </form>
   );
 };

@@ -25,6 +25,7 @@ export const insertBlog = async (previousState, formData) => {
     revalidatePath('/admin');
   } catch (error) {
     console.log(error);
+    return { error: 'Something went wrong' };
   }
 };
 
@@ -137,5 +138,6 @@ export const addUser = async (previousState, formData) => {
     revalidatePath('/admin');
   } catch (error) {
     console.log(error);
+    return { error: 'Something went wrong' };
   }
 };

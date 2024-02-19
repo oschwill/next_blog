@@ -16,7 +16,9 @@ const AdminPostForm = ({ userId }) => {
       <input type="text" name="img" placeholder="img" />
       <textarea type="text" name="desc" placeholder="desc" rows={10} />
       <button>Add</button>
-      {state?.error}
+      {state?.error && (
+        <p style={{ backgroundColor: 'pink', color: 'darkred', padding: '5px' }}>{state.error}</p>
+      )}
     </form>
   );
 };
