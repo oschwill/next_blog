@@ -7,6 +7,7 @@
 .yarn/install-state.gz
 watched.txt
 .env
+/dist
 
 # testing
 /coverage
