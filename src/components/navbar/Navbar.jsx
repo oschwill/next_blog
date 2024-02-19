@@ -3,14 +3,17 @@ import Links from './links/Links';
 
 /* CSS */
 import styles from './navbar.module.css';
+import { auth } from '@/lib/auth';
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await auth();
+
   return (
     <header className={styles.container}>
       <Link href="/" className={styles.logo}>
         Logo
       </Link>
-      <Links />
+      <Links session={session} />
     </header>
   );
 };
