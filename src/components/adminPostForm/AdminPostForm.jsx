@@ -1,7 +1,7 @@
 'use client';
 
 import { insertBlog } from '@/lib/action';
-import styles from './AdminPostForm.module.css';
+import styles from './adminPostForm.module.css';
 import { useFormState } from 'react-dom';
 
 const AdminPostForm = ({ userId }) => {

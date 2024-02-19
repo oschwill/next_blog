@@ -1,5 +1,5 @@
 import { getUsers } from '@/lib/data';
-import styles from './AdminUsers.module.css';
+import styles from './adminUsers.module.css';
 import Image from 'next/image';
 import { deleteUser } from '@/lib/action';
 

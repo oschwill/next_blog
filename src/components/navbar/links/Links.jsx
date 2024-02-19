@@ -4,7 +4,7 @@ import NavLink from './navLink/NavLink';
 import { useState } from 'react';
 
 /* CSS */
-import styles from './Links.module.css';
+import styles from './links.module.css';
 import Image from 'next/image';
 import { handleLogout } from '@/lib/action';
 
