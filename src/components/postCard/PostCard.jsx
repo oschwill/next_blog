@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 /* CSS */
-import styles from './postCard.module.css';
+import styles from './PostCard.module.css';
 
 const PostCard = ({ post }) => {
   return (
