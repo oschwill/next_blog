@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 /* CSS */
-import styles from '../RegisterForm.module.css';
+import styles from '@/components/registerForm/registerForm.module.css';
 
 const RegisterForm = () => {
   const [state, formAction] = useFormState(register, undefined);

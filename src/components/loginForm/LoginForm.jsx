@@ -4,7 +4,7 @@ import { login } from '@/lib/action';
 import { useFormState } from 'react-dom';
 import Link from 'next/link';
 /* CSS */
-import styles from './loginForm.module.css';
+import styles from '@/components/loginForm/loginForm.module.css';
 
 const LoginForm = () => {
   const [state, formAction] = useFormState(login, undefined);

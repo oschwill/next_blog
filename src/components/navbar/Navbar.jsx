@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Links from './links/Links';
 
 /* CSS */
-import styles from './navbar.module.css';
+import styles from '@/components/navbar/navbar.module.css';
 import { auth } from '@/lib/auth';
 
 const Navbar = async () => {
