@@ -1,7 +1,7 @@
 import { getAllPosts } from '@/lib/data';
 import styles from './adminPosts.module.css';
 import Image from 'next/image';
-import { deletePost } from '@/lib/action';
+import { deleteBlog } from '@/lib/action';
 
 const AdminPosts = async () => {
   const posts = await getAllPosts();
@@ -15,7 +15,7 @@ const AdminPosts = async () => {
             <Image src={post.img || '/noAvatar.png'} alt="" width={50} height={50} />
             <span className={styles.postTitle}>{post.title}</span>
           </div>
-          <form action={deletePost}>
+          <form action={deleteBlog}>
             <input type="hidden" name="id" value={post.id} />
             <button className={styles.postButton}>Delete</button>
           </form>
